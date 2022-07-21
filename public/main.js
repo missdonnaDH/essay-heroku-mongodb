@@ -5,7 +5,7 @@ function run() {
             const detailsElement = document.getElementById("movie");
 
             detailsElement.getElementsByTagName("h1")[0].innerText = data.nom;
-            detailsElement.getElementsByTagName("p")[0].innerText = data.age;
+            detailsElement.getElementsByTagName("p")[0].innerText = data.num;
 
             detailsElement.style.visibility = "visible";
         });

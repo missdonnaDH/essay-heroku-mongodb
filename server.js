@@ -27,7 +27,7 @@ app.get("/api/movie", async function (req, res) {
             {
                 $project: {
                     nom: 1,
-                    age: 1,
+                    num: 1,
                 },
             },
         ]);
