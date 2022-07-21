@@ -4,7 +4,7 @@ const app = express();
 const { MongoClient } = require("mongodb");
 
 const uri =
-    "mongodb+srv://xene:HHez1wpLFRCUJCqw@essay-cluster.ah07px7.mongodb.net/sample_mflix?retryWrites=true&w=majority";
+    "mongodb+srv://xene:HHez1wpLFRCUJCqw@essay-cluster.ah07px7.mongodb.net/contacts?retryWrites=true&w=majority";
 
 // use the express-static middleware
 app.use(express.static("public"));
@@ -16,19 +16,18 @@ app.get("/api/movie", async function (req, res) {
     try {
         await client.connect();
 
-        const database = client.db("sample_mflix");
-        const collection = database.collection("movies");
+        const database = client.db("contacts");
+        const collection = database.collection("conties");
 
         // Query for a movie that has the title 'Back to the Future'
-        const query = { genres: "Comedy", poster: { $exists: true } };
+        //const query = { genres: "Comedy", poster: { $exists: true } };
         const cursor = await collection.aggregate([
-            { $match: query },
+            // { $match: query },
             { $sample: { size: 1 } },
             {
                 $project: {
-                    title: 1,
-                    fullplot: 1,
-                    poster: 1,
+                    nom: 1,
+                    age: 1,
                 },
             },
         ]);
