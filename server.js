@@ -33,7 +33,7 @@ app.get("/api/movie", async function (req, res) {
         ]);*/
         const cursor = await collection.find({}).toArray();
         const movie = await cursor.next();
-
+        console.log(movie);
         return res.json(movie);
     } catch (err) {
         console.log(err);
